@@ -20,6 +20,12 @@ num2 = float(input("Enter the second number: "))
 # process the inputs
 if operation == "+":
     print(num1, "+", num2, "=", addition(num1,num2))
+elif operation == "-":
+    print(num1, "-", num2, "=", subtraction(num1,num2))
+elif operation == "*":
+    print(num1, "+", num2, "=", addition(num1,num2))
+elif operation == "/":
+    print(num1, "+", num2, "=", addition(num1,num2))
 else:
     print("Invalid operation")
 # display result
