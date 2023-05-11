@@ -43,5 +43,23 @@ while repeat:
     if try_again.lower() != "yes":
         repeat = False
         print("Thank you for using the calculator")
-        sys.exit()
+        
+
 # design UI
+# import tkinter, messagebox
+from tkinter import *
+from tkinter import messagebox
+# create display for user input
+root = Tk()
+root.title("Calculator")
+root.config(bd=15)
+# operation design
+operation = Label(root, text = "Select an operation (+, -, *, /): ")
+operation.grid(row = 1, column = 0)
+entry_2 = Entry(root)
+entry_2.grid(row = 1, column = 1)
+
+root.mainloop()
+sys.exit()
+# button for result 
+# show result
