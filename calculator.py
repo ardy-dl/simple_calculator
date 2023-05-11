@@ -53,11 +53,13 @@ from tkinter import messagebox
 root = Tk()
 root.title("Calculator")
 root.config(bd=15)
-# operation design
-operation = Label(root, text = "Select an operation (+, -, *, /): ")
-operation.grid(row = 1, column = 0)
-entry_1 = Entry(root)
-entry_1.grid(row = 1, column = 1)
+# drop down operation selection design
+operation_ui = Label(root, text="Select an operation (+, -, *, /): ")
+operation_ui.grid(row=0, column=0)
+operation_var = StringVar(root)
+operation_var.set("+")
+operation_dropdown = OptionMenu(root, operation_var, "+", "-", "*", "/")
+operation_dropdown.grid(row=0, column=1)
 
 num_1 = Label(root, text = "Enter the first number: ")
 num_1.grid(row = 2, column = 0)
