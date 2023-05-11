@@ -13,6 +13,13 @@ def multiplication(num1, num2):
 def division(num1, num2):
     return num1 / num2
 
+def try_again():
+    # clear the input fields
+    entry_1.delete(0, END)
+    entry_2.delete(0, END)
+    # clear the result label
+    result_label.config(text="")
+
 repeat = True
 while repeat:
 # ask the user for operation
@@ -38,44 +45,53 @@ while repeat:
                 print(num_1, "/", num_2, "=", division(num_1,num_2))
         else:
             print("Invalid operation")
-# ask if want to try again
-    try_again = input("Do you want to try again? (yes or no): ")
-    if try_again.lower() != "yes":
-        repeat = False
-        print("Thank you for using the calculator")
         
 
-# design UI
-# import tkinter, messagebox
-from tkinter import *
-from tkinter import messagebox
-# create display for user input
-root = Tk()
-root.title("Calculator")
-root.config(bd=15)
-# drop down operation selection design
-operation_ui = Label(root, text="Select an operation (+, -, *, /): ")
-operation_ui.grid(row=0, column=0)
-operation_var = StringVar(root)
-operation_var.set("+")
-operation_dropdown = OptionMenu(root, operation_var, "+", "-", "*", "/")
-operation_dropdown.grid(row=0, column=1)
+        # design UI
+        # import tkinter, messagebox
+        from tkinter import *
+        from tkinter import messagebox
+        # create display for user input
+        root = Tk()
+        root.title("Calculator")
+        root.config(bd=15)
 
-num_1 = Label(root, text = "Enter the first number: ")
-num_1.grid(row = 2, column = 0)
-entry_2 = Entry(root)
-entry_2.grid(row = 2, column = 1)
+        # create the try again button
+        try_again_button = Button(root, text="Try Again", command=try_again)
+        try_again_button.grid(row=4, column=0)
 
-num_2 = Label(root, text = "Enter the second number: ")
-num_2.grid(row = 3, column = 0)
-entry_3 = Entry(root)
-entry_3.grid(row = 3, column = 1)
+        # drop down operation selection design
+        operation_ui = Label(root, text="Select an operation (+, -, *, /): ")
+        operation_ui.grid(row=0, column=0)
+        operation_var = StringVar(root)
+        operation_var.set("+")
+        operation_dropdown = OptionMenu(root, operation_var, "+", "-", "*", "/")
+        operation_dropdown.grid(row=0, column=1)
 
-def solve():
-        messagebox.showinfo("RESULT", "World")
+        num_1 = Label(root, text = "Enter the first number: ")
+        num_1.grid(row = 2, column = 0)
+        entry_1 = Entry(root)
+        entry_1.grid(row = 2, column = 1)
 
-button = Button(root, text = "Solve", command = solve)
-button.grid(row = 4, column = 1)
+        num_2 = Label(root, text = "Enter the second number: ")
+        num_2.grid(row = 3, column = 0)
+        entry_2 = Entry(root)
+        entry_2.grid(row = 3, column = 1)
+
+        def solve():
+                messagebox.showinfo("RESULT", "World")
+
+        button = Button(root, text = "Solve", command = solve)
+        button.grid(row = 4, column = 1)
+
+        # create button to perform arithmetic operation and display result
+        button = Button(root, text="Solve", command=solve)
+        button.grid(row=3, column=1)
+        # ask if the user wants to try again
+        try_again = input("Do you want to try again? (yes or no): ")
+        if try_again.lower() != "yes":
+            # user doesn't want to try again, exit the loop
+            break
 
 root.mainloop()
 sys.exit()
