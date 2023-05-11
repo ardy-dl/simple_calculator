@@ -1,3 +1,5 @@
+# import exit module
+import sys
 # create method
 def addition(num1, num2):
     return num1 + num2
@@ -40,7 +42,6 @@ while repeat:
     try_again = input("Do you want to try again? (yes or no): ")
     if try_again.lower() != "yes":
         repeat = False
-print("Thank you for using the calculator")
-
-
+        print("Thank you for using the calculator")
+        sys.exit()
 # design UI
