@@ -69,6 +69,12 @@ num_2.grid(row = 3, column = 0)
 entry_3 = Entry(root)
 entry_3.grid(row = 3, column = 1)
 
+def solve():
+        messagebox.showinfo("RESULT", "World")
+
+button = Button(root, text = "Solve", command = solve)
+button.grid(row = 4, column = 1)
+
 root.mainloop()
 sys.exit()
 # button for result 
