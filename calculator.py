@@ -56,8 +56,18 @@ root.config(bd=15)
 # operation design
 operation = Label(root, text = "Select an operation (+, -, *, /): ")
 operation.grid(row = 1, column = 0)
+entry_1 = Entry(root)
+entry_1.grid(row = 1, column = 1)
+
+num_1 = Label(root, text = "Enter the first number: ")
+num_1.grid(row = 2, column = 0)
 entry_2 = Entry(root)
-entry_2.grid(row = 1, column = 1)
+entry_2.grid(row = 2, column = 1)
+
+num_2 = Label(root, text = "Enter the second number: ")
+num_2.grid(row = 3, column = 0)
+entry_3 = Entry(root)
+entry_3.grid(row = 3, column = 1)
 
 root.mainloop()
 sys.exit()
